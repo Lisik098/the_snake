@@ -189,6 +189,42 @@ def handle_keys(snake):
             elif event.key == pygame.K_RIGHT:
                 snake.next_direction = RIGHT
 
+def main():
+    """
+    Основная функция, запускающая игровой цикл.
+    """
+    # Инициализация PyGame:
+    pygame.init()
+    # Создаём экземпляры классов:
+    snake = Snake()
+    apple = Apple()
+
+    while True:
+        clock.tick(SPEED)
+        handle_keys(snake)
+        snake.update_direction()
+        snake.move()
+
+        # Проверка: съела ли змейка яблоко?
+        if snake.get_head_position() == apple.position:
+            snake.length += 1
+            apple.randomize_position()
+            # Убедимся, что яблоко не появилось на змейке
+            while apple.position in snake.positions:
+                apple.randomize_position()
+
+        # Проверка столкновения змейки с собой
+        if snake.get_head_position() in snake.positions[1:]:
+            snake.reset()
+
+        # Отрисовка
+        screen.fill(BOARD_BACKGROUND_COLOR)
+        snake.draw(screen)
+        apple.draw(screen)
+
+        pygame.display.update()
+
+
 
 if __name__ == '__main__':
     main()
