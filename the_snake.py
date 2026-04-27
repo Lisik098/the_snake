@@ -171,5 +171,24 @@ class Snake(GameObject):
         self.next_direction = None
 
 
+def handle_keys(snake):
+    """
+    Обрабатывает нажатия клавиш для изменения направления движения змейки.
+    """
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            raise SystemExit
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP:
+                snake.next_direction = UP
+            elif event.key == pygame.K_DOWN:
+                snake.next_direction = DOWN
+            elif event.key == pygame.K_LEFT:
+                snake.next_direction = LEFT
+            elif event.key == pygame.K_RIGHT:
+                snake.next_direction = RIGHT
+
+
 if __name__ == '__main__':
     main()
