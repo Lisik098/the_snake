@@ -81,8 +81,8 @@ class Apple(GameObject):
 
     def randomize_position(self):
         """Устанавливает координаты для яблока."""
-        max_x = 640 - 20
-        max_y = 480 - 20
+        max_x = SCREEN_WIDTH - GRID_SIZE
+        max_y = SCREEN_HEIGHT - GRID_SIZE
 
         x = randint(0, max_x // GRID_SIZE) * GRID_SIZE
         y = randint(0, max_y // GRID_SIZE) * GRID_SIZE
