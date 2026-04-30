@@ -108,8 +108,10 @@ class Snake(GameObject):
     """
 
     def __init__(self):
-        """Инициализирует змейку с зелёным цветом.
-        длиной 1 и движением вправо."""
+        """
+        Инициализирует змейку с зелёным цветом.
+        длиной 1 и движением вправо.
+        """
         super().__init__(body_color=SNAKE_COLOR)
         self.length = 1
         self.positions = [(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)]
@@ -164,8 +166,10 @@ class Snake(GameObject):
         return self.positions[0]
 
     def reset(self):
-        """Сбрасывает змейку в начальное состояние.
-        после столкновения с собой."""
+        """
+        Сбрасывает змейку в начальное состояние.
+        после столкновения с собой.
+        """
         self.length = 1
         self.positions = [(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)]
         self.direction = RIGHT
