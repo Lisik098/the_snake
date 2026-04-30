@@ -171,6 +171,7 @@ class Snake(GameObject):
         self.direction = RIGHT
         self.next_direction = None
 
+
 def handle_keys(snake):
     """Обрабатывает нажатия клавиш для изменения направления движения змейки.
     Аргумент:
@@ -189,6 +190,7 @@ def handle_keys(snake):
                 snake.next_direction = LEFT
             elif event.key == pygame.K_RIGHT:
                 snake.next_direction = RIGHT
+
 
 def main():
     """Основная функция, запускающая игровой цикл."""
@@ -223,6 +225,7 @@ def main():
 
         pygame.display.update()
 
+
 if __name__ == '__main__':
     main()
-    
+
